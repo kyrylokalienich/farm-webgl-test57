@@ -1,9 +1,9 @@
 {
-    "name": "ChessTG1212",
-    "short_name": "ChessTG1212",
+    "name": "TgFarmUnity",
+    "short_name": "TgFarmUnity",
     "start_url": "index.html",
     "display": "fullscreen",
-    "background_color": "#000000",
+    "background_color": "#231F20",
     "theme_color": "#000",
     "description": "",
     "icons": [{
