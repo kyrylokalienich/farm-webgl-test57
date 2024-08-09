@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
   </head>
   <body>
     <div id="unity-container">
@@ -57,12 +58,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/f0ffb1faf46a30ae452ba999549b587e.loader.js";
+      var loaderUrl = buildUrl + "/73603ff8597cd182ca805e3ed0cb22f2.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/10aacffdf47cbfe13957ec44afb56ecd.data",
-        frameworkUrl: buildUrl + "/6530dea7c0eadf4d992b75d4d1415ec2.framework.js",
-        codeUrl: buildUrl + "/02334cfac17a696d69723237586d6bb6.wasm",
+        dataUrl: buildUrl + "/0c8d9df99908865bbc691c73f4463706.data",
+        frameworkUrl: buildUrl + "/6e5ed8b2b49055fa9dceaa07faa5c0df.framework.js",
+        codeUrl: buildUrl + "/2f0106034f2f52223708b758e69c7f7e.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "TgFarmUnity",
@@ -99,6 +100,8 @@
         });
       };
       document.body.appendChild(script);
+      console.log("initData");
+      console.log(window.Telegram.WebApp.initData);
     </script>
   </body>
 </html>
