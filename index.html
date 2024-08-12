@@ -58,12 +58,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/64502f776265d64dd5700ec629eaed56.loader.js";
+      var loaderUrl = buildUrl + "/6a2c2888f8bc5d7c82608d5c97416f53.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/9a60832024f05f96e5b0fe89a35c9b77.data",
-        frameworkUrl: buildUrl + "/eec26aa60fc40d96dfa1b8c7068cc1d1.framework.js",
-        codeUrl: buildUrl + "/5cabd25fd321b1fd395ee65aafae1a99.wasm",
+        dataUrl: buildUrl + "/15068863cdd08aee80153de619acc947.data",
+        frameworkUrl: buildUrl + "/0cb0f9c2a893029604291bc554f8ebe8.framework.js",
+        codeUrl: buildUrl + "/1345fffb26aeb0ffe834047a2deb349f.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "TgFarmUnity",
@@ -104,7 +104,9 @@
             console.log('aaaa');
             console.log('Instance created',window.Telegram.WebApp);
             window.unityInstance.SendMessage("Boot", "Log", "SetWebAppUser from js");
-            window.unityInstance.SendMessage("Boot", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+
+            window.unityInstance.SendMessage("Boot", "SetWebAppInitData", JSON.stringify(window.Telegram.WebApp.initDataUnsafe));
+            //window.unityInstance.SendMessage("Boot", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
           }
           else{
             console.log('no telegram!!');
