@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
   </head>
   <body>
     <div id="unity-container">
@@ -57,12 +58,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/8513d12f151643a9986814503984233c.loader.js";
+      var loaderUrl = buildUrl + "/146ce7fbf0e53ffe5a9bbd5f925dac3f.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/e30099877f2d31ac171d0cdd41de9a7b.data",
-        frameworkUrl: buildUrl + "/426460677d1b007701223beadfaa19a9.framework.js",
-        codeUrl: buildUrl + "/150491c8df936c11a0bed60f68ae0fc0.wasm",
+        dataUrl: buildUrl + "/60b999c8b852ff8f0b0e1c95003d7b67.data",
+        frameworkUrl: buildUrl + "/e3685428849eeb1168cdcdba76886558.framework.js",
+        codeUrl: buildUrl + "/bdd5f9cf5ea1d3b53ae3fe06e02daf90.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "TgFarmUnity",
@@ -94,6 +95,26 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
+          window.unityInstance = unityInstance;
+          window.unityInstance.SendMessage("Boot", "Log", "AAAAAAAAAA from js");
+    
+          console.log('aaaa');
+
+          if(window.Telegram && window.Telegram.WebApp){
+            console.log('aaaa');
+            console.log('Instance created',window.Telegram.WebApp);
+            window.unityInstance.SendMessage("Boot", "Log", "SetWebAppUser from js");
+
+            window.unityInstance.SendMessage("Boot", "SetWebAppInitData", JSON.stringify(window.Telegram.WebApp.initDataUnsafe));
+            window.Telegram.WebApp.enableClosingConfirmation();
+            //window.unityInstance.SendMessage("Boot", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+          }
+          else{
+            console.log('no telegram!!');
+          }
+
+        
+
         }).catch((message) => {
           alert(message);
         });
