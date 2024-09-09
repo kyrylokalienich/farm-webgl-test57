@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
   </head>
   <body>
     <div id="unity-container">
@@ -58,12 +58,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/2b57f1d9804ad999d64da664638ac81d.loader.js";
+      var loaderUrl = buildUrl + "/36c4974dca7938f67892815c9a62624d.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/543b6798007f85d8aac7571d31544a4c.data",
-        frameworkUrl: buildUrl + "/cfd4c9d8035db16e2a7ca842c1c1e965.framework.js",
-        codeUrl: buildUrl + "/98039c565a0bf1241b77270048ff1860.wasm",
+        dataUrl: buildUrl + "/99fbda19a6ec7f193aaf24707ee39b61.data",
+        frameworkUrl: buildUrl + "/fc1dc218ae88b51c4816fa8b61d3a07d.framework.js",
+        codeUrl: buildUrl + "/4466f33a4b9e21a0da6db4006b9c27ad.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "TgFarmUnity",
@@ -94,9 +94,27 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
-	        window.unityInstance = unityInstance;
           loadingBar.style.display = "none";
-          window.unityInstance.SendMessage("Boot", "SetWebAppInitData", JSON.stringify(window.Telegram.WebApp.initDataUnsafe));
+          window.unityInstance = unityInstance;
+          window.unityInstance.SendMessage("Boot", "Log", "AAAAAAAAAA from js");
+    
+          console.log('aaaa');
+
+          if(window.Telegram && window.Telegram.WebApp){
+            console.log('aaaa');
+            console.log('Instance created',window.Telegram.WebApp);
+            window.unityInstance.SendMessage("Boot", "Log", "SetWebAppUser from js");
+
+            window.unityInstance.SendMessage("Boot", "SetWebAppInitData", JSON.stringify(window.Telegram.WebApp.initDataUnsafe));
+            window.Telegram.WebApp.enableClosingConfirmation();
+            //window.unityInstance.SendMessage("Boot", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+          }
+          else{
+            console.log('no telegram!!');
+          }
+
+        
+
         }).catch((message) => {
           alert(message);
         });
