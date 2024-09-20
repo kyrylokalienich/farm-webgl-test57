@@ -13,14 +13,17 @@ body { padding: 0; margin: 0 }
 }
 #unity-logo { visibility: hidden; }
 #unity-progress-bar-empty { 
-    margin-left: auto; 
-    margin-right: auto; 
-    width: 264px; 
-    height: 20px; 
-    margin-top: 10px; 
-    background: url('progress-bar-empty-light.png') no-repeat center;
-    background-size :contain;
-    padding: 6px 3px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 25px;
+    margin-top: 10px;
+    /* background: url(progress-bar-empty-light.png) no-repeat center; */
+    /* background-size: cover; */
+    /* padding: 6px 4px; */
+    /* margin: 0px 5px; */
+    border: solid 4px black;
+
 }
 #unity-progress-bar-full { 
     width: 0%; 
