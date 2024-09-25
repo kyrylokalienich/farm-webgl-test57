@@ -6,7 +6,12 @@
     <title>Unity Web Player | TgFarmUnity</title>
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>
+      // Initialize Eruda
+      eruda.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
   </head>
   <body>
     <div id="unity-container">
@@ -60,8 +65,8 @@
       var loaderUrl = buildUrl + "/9ed3c47969db870489d6951e0724dd9c.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/1863c2b2c3180ed49cd82d0141979204.data",
-        frameworkUrl: buildUrl + "/dabddd446398fbf8aa79076b6f2b0d19.framework.js",
+        dataUrl: buildUrl + "/d70b141c70836dbf22c53f62b14c039b.data",
+        frameworkUrl: buildUrl + "/df3c94bb45cffc11146891467473664e.framework.js",
         codeUrl: buildUrl + "/262e125e1945243b8c1ec6b1880429c1.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
